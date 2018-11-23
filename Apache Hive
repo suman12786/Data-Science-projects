@@ -184,3 +184,18 @@ select avg(trip_distance/((unix_timestamp(tpep_dropoff_datetime)-unix_timestamp(
 \par
 \par
 }
+
+
+------------------------------------------------------------------------------------------------------------
+insert overwrite table taxidata_orc partition(mth_nyc)
+select VendorID, tpep_pickup_datetime, tpep_dropoff_datetime,
+passenger_count, trip_distance, RatecodeID, store_and_fwd_flag,
+PULocationID, DOLocationID, payment_type, fare_amount, extra,
+mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount,
+MONTH(tpep_pickup_datetime) as mth_nyc
+from taxidata 
+where YEAR(tpep_pickup_datetime) = 2017 and MONTH(tpep_pickup_datetime) in (11,12)
+and passenger_count not in (0, 192) and fare_amount > 0.0 and tip_amount > 0.0
+and tolls_amount > 0 and total_amount > 0 and extra IN (0,0.5,1) and mta_tax IN (0,0.5)
+and improvement_surcharge = 0.3 and trip_distance > 0.0 
+and RateCodeID IN (1,2,3,4,5,6);
