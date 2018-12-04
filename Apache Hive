@@ -184,7 +184,19 @@ select avg(trip_distance/((unix_timestamp(tpep_dropoff_datetime)-unix_timestamp(
 \par
 \par
 }
+------------------------------------------------------------------------------------------------------------------------------
+1. UNDERSTANDING MACHINE LEARNING From Theory to Algorithms 
 
+by  Shai Shalev-Shwartz 
+
+You can get the soft copy of this book in the following location. Not sure, if you can open it within TCS. 
+
+https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf 
+
+2. Machine Learning (An Algorithmic Perspective) 
+ By Stephen Marsland 
+
+Will let you know if I have some soft copy of the books. 
 
 ------------------------------------------------------------------------------------------------------------
 insert overwrite table taxidata_orc partition(mth_nyc)
