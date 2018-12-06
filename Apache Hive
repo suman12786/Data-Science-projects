@@ -198,6 +198,10 @@ https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-mach
 
 Will let you know if I have some soft copy of the books. 
 
+
+        PGDDS-IIIT-Bangalore/DDA1730308_NYCParkingTicket_CodeScript.R
+      
+
 ------------------------------------------------------------------------------------------------------------
 insert overwrite table taxidata_orc partition(mth_nyc)
 select VendorID, tpep_pickup_datetime, tpep_dropoff_datetime,
